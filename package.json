@@ -1,0 +1,32 @@
+{
+  "private": true,
+  "version": "1.0.0",
+  "description": "A talk performed at Codemotion Amsterdam 2019.",
+  "scripts": {
+    "start": "mdx-deck deck.mdx",
+    "build": "mdx-deck build deck.mdx --no-html",
+    "pdf": "mdx-deck pdf deck.mdx",
+    "image": "mdx-deck screenshot deck.mdx",
+    "help": "mdx-deck",
+    "postbuild": "npm run cp:resources",
+    "cp:resources": "cp -r assets .nojekyll 404.html CNAME dist",
+    "deploy": "git subtree push --prefix dist origin master"
+  },
+  "keywords": [],
+  "author": "IceOnFire <antony.mistretta@gmail.com>(https://www.ingloriouscoderz.it)",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.3.3",
+    "@babel/standalone": "^7.3.3",
+    "css-loader": "^2.1.0",
+    "mdx-deck": "^1.6.7",
+    "mdx-deck-live-code": "^1.0.1",
+    "raw-loader": "^1.0.0",
+    "style-loader": "^0.23.1",
+    "url-loader": "^1.1.2"
+  },
+  "name": "react-the-inglorious-way",
+  "dependencies": {
+    "recompose": "^0.30.0"
+  }
+}
