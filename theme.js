@@ -1,31 +1,28 @@
 import { default as theme } from 'mdx-deck/themes'
 // import atomDark from 'react-syntax-highlighter/styles/prism/atom-dark'
 
-const titleStyle = {
-  fontFamily: 'Orbitron',
-  fontWeight: 'normal',
-  color: '#c678dd',
-}
+import getStyle from './styles'
+
+const tokens = window.location.search.slice(1).split('&')
+const params = tokens.reduce((params, token) => {
+  const [key, value] = token.split('=')
+  params[key] = value
+  return params
+}, {})
+
+export const styleName = params.theme || 'dark'
+const style = getStyle(styleName)
 
 export default {
   ...theme,
 
-  h1: titleStyle,
-  h2: titleStyle,
-  h3: titleStyle,
+  h1: style.title,
+  h2: style.title,
+  h3: style.title,
 
-  link: {
-    color: '#61afef',
-    textDecoration: 'none',
-  },
+  link: style.link,
 
-  colors: {
-    ...theme.colors,
-    text: '#303030',
-    background: '#f5f5f5',
-    heading: '#c678dd',
-    pre: '#c678dd',
-  },
+  colors: style.colors,
 
   // prism: {
   //   style: atomDark,

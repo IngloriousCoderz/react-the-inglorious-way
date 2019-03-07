@@ -1,19 +1,22 @@
 import { Head, Appear } from 'mdx-deck'
-import { Split } from 'mdx-deck/layouts'
+import Layout from './layout'
 
 import Video from './components/video'
 import Image from './components/image'
 import LiveCode from './components/live-code'
 
+import { styleName } from './theme'
 export { default as theme } from './theme'
 
 <Head>
   <title>React, The Inglorious Way</title>
 </Head>
 
+export default Layout
+
 # React, The Inglorious Way
 
-<Image src="./assets/images/ic.png" width="8rem" height="8rem" />
+<Image src={`./assets/images/ic_${styleName}.png`} width="8rem" height="8rem" />
 
 [Matteo Antony Mistretta](https://www.linkedin.com/in/antonymistretta/)
 
@@ -25,14 +28,9 @@ export { default as theme } from './theme'
 
 ## Why
 
-Because.
-
-<!--
-- They are [stable](https://reactjs.org/blog/2019/02/06/react-v16.8.0.html)
-- They [separate](https://medium.com/@dan_abramov/making-sense-of-react-hooks-fdbde8803889) stateful logic
-- They [flatten](https://itnext.io/why-reacts-hooks-api-is-a-game-changer-8731c2b0a8c) our component hierarchy
-- They allow us to go fully [functional](https://hackernoon.com/react-stateless-functional-components-nine-wins-you-might-have-overlooked-997b0d933dbc)
--->
+- React is evolving [rapidly](https://reactjs.org/blog/)
+- A few rules, lots of [strategies](https://reactjs.org/docs/design-principles.html)
+- Learning them makes us better [coders](https://medium.com/@FunctionalWorks/what-functional-programming-is-why-it-makes-you-better-29ee34284a6e)
 
 ---
 
@@ -47,11 +45,50 @@ Because.
 
 ---
 
-## setState
+## Agenda
+
+- Class Components
+- Class + Reducer
+- Higher-Order Components
+- Render Props
+- Hooks
+- Hooks + Reducer
 
 ---
 
-## Performance
+## Class Components
+
+---
+
+<LiveCode
+  title="Class Component - Before"
+  code={require('!raw-loader!./components/class-component-before')}
+/>
+
+---
+
+<LiveCode
+  title="Class Component - After"
+  code={require('!raw-loader!./components/class-component-after')}
+/>
+
+---
+
+## Class + Reducer
+
+---
+
+<LiveCode
+  title="Class + Reducer - Before"
+  code={require('!raw-loader!./components/class-reducer-before')}
+/>
+
+---
+
+<LiveCode
+  title="Class + Reducer - After"
+  code={require('!raw-loader!./components/class-reducer-after')}
+/>
 
 ---
 
@@ -59,7 +96,17 @@ Because.
 
 ---
 
-## Recompose
+<LiveCode
+  title="Recompose - Before"
+  code={require('!raw-loader!./components/recompose-before')}
+/>
+
+---
+
+<LiveCode
+  title="Recompose - Before"
+  code={require('!raw-loader!./components/recompose-after')}
+/>
 
 ---
 
@@ -67,7 +114,88 @@ Because.
 
 ---
 
-## Function As Child Component
+<LiveCode
+  title="Render Props - Before"
+  code={require('!raw-loader!./components/render-props-before')}
+/>
+
+---
+
+<LiveCode
+  title="Render Props - After"
+  code={require('!raw-loader!./components/render-props-after')}
+/>
+
+---
+
+## Hooks
+
+```notes
+After seeing how the Higher-Order Components and Render Props patterns work and solve our problems, a question arises: are hooks really necessary?
+```
+
+---
+
+<Image src="./assets/images/hooks-vs-recompose.png" width="33vw" />
+
+```notes
+That's why last year in November, while still studying hooks, I publicly asked myself: "React hooks leave me a bit puzzled still... Isn't it cleaner to just use Recompose? Maybe with some hierarchy-cutting magic...".
+
+Apart from the overwhelming number of likes on my post, another result I obtained is that THE Dan Abramov himself replied to me. Yay, senpai noticed me! <3 He said: "I think Andrew is writing something to explain why not". "Cool, can't wait to read it!".
+```
+
+---
+
+<Image src="./assets/images/waiting.jpg" width="33vw" />
+
+```notes
+That was November. I surfed every other day on the internet looking for Andrew's article, but never saw one.
+```
+
+---
+
+<Image src="./assets/images/andrew-on-recompose.png" height="33vh" />
+<Image src="./assets/images/dan-on-recompose.png" height="50vh" />
+
+```notes
+One thing I found, though, is this excerpt from Recompose's README file, written at the end of October. Here Andrew says that "hooks solve all problems" addressed with Recompose, so he's "discontinuing active maintenance", he's not going to maintain the library anymore.
+
+This of course triggered a rage, which was calmed down by Dan a few weeks later: Recompose had no new features for two years already, so dicontinuing it won't change anything for the users. But another interesting part is that he says that hooks solve "a large subset" of problems, not all of them. We will see what this means in a while.
+
+Anyway, since we still hadn't a satisfying reply from the React team, let's find out by ourselves what does it mean to refactor from Recompose and higher-order components to hooks.
+```
+
+---
+
+<LiveCode
+  title="Hooks - Before"
+  code={require('!raw-loader!./components/hooks-before')}
+/>
+
+---
+
+<LiveCode
+  title="Hooks - After"
+  code={require('!raw-loader!./components/hooks-after')}
+/>
+
+---
+
+## Hooks + Reducer
+
+---
+
+<LiveCode
+  title="Hooks + Reducer - Before"
+  code={require('!raw-loader!./components/hooks-reducer-before')}
+/>
+
+---
+
+<LiveCode
+  title="Hooks + Reducer - After"
+  code={require('!raw-loader!./components/hooks-reducer-after')}
+/>
 
 ---
 
@@ -88,10 +216,6 @@ Because.
 ---
 
 ## Context + Render Props + HoC
-
----
-
-## Hooks
 
 ---
 
