@@ -3,6 +3,7 @@ function useCounter() {
 
   const increment = () => setCount(count + 1)
   const decrement = () => setCount(count - 1)
+
   const handleChange = event => setCount(parseInt(event.target.value))
 
   return { count, increment, decrement, handleChange }

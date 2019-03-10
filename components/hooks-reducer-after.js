@@ -3,8 +3,9 @@ function useCounter() {
 
   const increment = () => dispatch({ type: 'INCREMENT' })
   const decrement = () => dispatch({ type: 'DECREMENT' })
-  const handleChange = event =>
-    dispatch({ type: 'SET_COUNT', payload: parseInt(event.target.value) })
+  const setCount = count => dispatch({ type: 'SET_COUNT', payload: count })
+
+  const handleChange = event => setCount(parseInt(event.target.value))
 
   return { count, increment, decrement, handleChange }
 }

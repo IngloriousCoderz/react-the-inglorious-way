@@ -1,10 +1,8 @@
 const enhance = compose(
-  withReducer('count', 'dispatch', counter, 0),
+  withState('count', 'setCount', 0),
   withHandlers({
-    increment: ({ dispatch }) => () => dispatch({ type: 'INCREMENT' }),
-    decrement: ({ dispatch }) => () => dispatch({ type: 'DECREMENT' }),
-    setCount: ({ dispatch }) => value =>
-      dispatch({ type: 'SET_COUNT', payload: value }),
+    increment: ({ setCount }) => () => setCount(count => count + 1),
+    decrement: ({ setCount }) => () => setCount(count => count - 1),
   }),
   withHandlers({
     handleChange: ({ setCount }) => event =>
@@ -27,16 +25,3 @@ function MyComponent({ count, decrement, increment, handleChange }) {
 }
 
 render(enhance(MyComponent))
-
-function counter(state = 0, action) {
-  switch (action.type) {
-    case 'INCREMENT':
-      return state + 1
-    case 'DECREMENT':
-      return state - 1
-    case 'SET_COUNT':
-      return action.payload
-    default:
-      return state
-  }
-}

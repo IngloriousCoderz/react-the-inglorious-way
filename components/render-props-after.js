@@ -2,6 +2,7 @@ class Counter extends PureComponent {
   increment = () => this.setState(({ count }) => ({ count: count + 1 }))
   decrement = () => this.setState(({ count }) => ({ count: count - 1 }))
   setCount = count => this.setState({ count })
+
   handleChange = event => this.setCount(parseInt(event.target.value))
 
   state = {

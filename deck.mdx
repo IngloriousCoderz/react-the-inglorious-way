@@ -1,28 +1,31 @@
-import { Head, Appear } from 'mdx-deck'
-import Layout from './layout'
+import { Head } from 'mdx-deck'
 
-import Video from './components/video'
+import Header from './components/header'
 import Image from './components/image'
 import LiveCode from './components/live-code'
 
-import { styleName } from './theme'
+import theme from './theme'
 export { default as theme } from './theme'
 
 <Head>
   <title>React, The Inglorious Way</title>
 </Head>
 
-export default Layout
-
 # React, The Inglorious Way
 
-<Image src={`./assets/images/ic_${styleName}.png`} width="8rem" height="8rem" />
+<Image
+  src={`./assets/images/ic_${theme.name}.png`}
+  width="8rem"
+  height="8rem"
+/>
 
 [Matteo Antony Mistretta](https://www.linkedin.com/in/antonymistretta/)
 
 [Inglorious Coderz](https://www.ingloriouscoderz.it)
 
 [@antonymistretta](https://twitter.com/antonymistretta)
+
+<Header />
 
 ---
 
@@ -41,9 +44,7 @@ export default Layout
 
 ---
 
-## SASS and CSS Modules
-
----
+<!-- ## SASS and CSS Modules -->
 
 ## Agenda
 
@@ -199,10 +200,6 @@ Anyway, since we still hadn't a satisfying reply from the React team, let's find
 
 ---
 
-## React.memo
-
----
-
 ## React.lazy is... cute
 
 ---
@@ -223,4 +220,4 @@ Anyway, since we still hadn't a satisfying reply from the React team, let's find
 
 Questions?
 
-[source code](https://github.com/IngloriousCoderz/refactoring-into-react-hooks)
+[source code](https://github.com/IngloriousCoderz/react-the-inglorious-way)

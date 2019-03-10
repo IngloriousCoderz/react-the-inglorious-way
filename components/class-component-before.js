@@ -19,7 +19,7 @@ class MyComponent extends Component {
     const { count } = this.state
 
     return (
-      <>
+      <div>
         <h1>{count}</h1>
         <div className="input-group">
           <button onClick={this.decrement}>-1</button>
@@ -32,7 +32,7 @@ class MyComponent extends Component {
           />
           <button onClick={this.increment}>+1</button>
         </div>
-      </>
+      </div>
     )
   }
 }

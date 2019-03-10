@@ -14,20 +14,12 @@ function counter(state = 0, action) {
 class MyComponent extends PureComponent {
   state = { count: counter(undefined, {}) }
 
-  increment = () =>
-    this.setState(({ count }) => ({
-      count: counter(count, { type: 'INCREMENT' }),
-    }))
+  dispatch = action =>
+    this.setState(({ count }) => ({ count: counter(count, action) }))
 
-  decrement = () =>
-    this.setState(({ count }) => ({
-      count: counter(count, { type: 'DECREMENT' }),
-    }))
-
-  setCount = count =>
-    this.setState({
-      count: counter(count, { type: 'SET_COUNT', payload: count }),
-    })
+  increment = () => this.dispatch({ type: 'INCREMENT' })
+  decrement = () => this.dispatch({ type: 'DECREMENT' })
+  setCount = value => this.dispatch({ type: 'SET_COUNT', payload: value })
 
   handleChange = event => this.setCount(parseInt(event.target.value))
 

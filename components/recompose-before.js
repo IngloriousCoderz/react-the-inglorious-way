@@ -1,20 +1,9 @@
 class MyComponent extends PureComponent {
-  state = { count: counter(undefined, {}) }
+  state = { count: 0 }
 
-  increment = () =>
-    this.setState(({ count }) => ({
-      count: counter(count, { type: 'INCREMENT' }),
-    }))
-
-  decrement = () =>
-    this.setState(({ count }) => ({
-      count: counter(count, { type: 'DECREMENT' }),
-    }))
-
-  setCount = count =>
-    this.setState({
-      count: counter(count, { type: 'SET_COUNT', payload: count }),
-    })
+  increment = () => this.setState(({ count }) => ({ count: count + 1 }))
+  decrement = () => this.setState(({ count }) => ({ count: count - 1 }))
+  setCount = count => this.setState({ count })
 
   handleChange = event => this.setCount(parseInt(event.target.value))
 
@@ -35,16 +24,3 @@ class MyComponent extends PureComponent {
 }
 
 render(MyComponent)
-
-function counter(state = 0, action) {
-  switch (action.type) {
-    case 'INCREMENT':
-      return state + 1
-    case 'DECREMENT':
-      return state - 1
-    case 'SET_COUNT':
-      return action.payload
-    default:
-      return state
-  }
-}

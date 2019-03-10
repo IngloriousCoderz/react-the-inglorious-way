@@ -1,7 +1,7 @@
 import { default as theme } from 'mdx-deck/themes'
 // import atomDark from 'react-syntax-highlighter/styles/prism/atom-dark'
 
-import getStyle from './styles'
+import themes from './themes'
 
 const tokens = window.location.search.slice(1).split('&')
 const params = tokens.reduce((params, token) => {
@@ -10,19 +10,21 @@ const params = tokens.reduce((params, token) => {
   return params
 }, {})
 
-export const styleName = params.theme || 'dark'
-const style = getStyle(styleName)
+export const name = params.theme || 'dark'
+const { title, link, colors } = themes[name]
 
 export default {
+  name,
+
   ...theme,
 
-  h1: style.title,
-  h2: style.title,
-  h3: style.title,
+  h1: title,
+  h2: title,
+  h3: title,
 
-  link: style.link,
+  link: link,
 
-  colors: style.colors,
+  colors: colors,
 
   // prism: {
   //   style: atomDark,

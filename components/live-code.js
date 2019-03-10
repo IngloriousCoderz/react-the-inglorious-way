@@ -1,7 +1,7 @@
 import React from 'react'
 import { LiveCode } from 'mdx-deck-live-code'
 import { transform } from '@babel/standalone'
-import { styleName } from '../theme'
+import theme from '../theme'
 
 import '../assets/styles/prism-onedark.css'
 import '../assets/styles/style.css'
@@ -19,7 +19,7 @@ function MyLiveCode({ title, size = 'fullscreen', code }) {
       title={title}
       size={size}
       code={code}
-      previewProps={{ className: styleName }}
+      previewProps={{ className: theme.name }}
       providerProps={{
         noInline: true,
         mountStylesheet: false,
