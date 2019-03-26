@@ -8,9 +8,10 @@ function Child({ who }) {
 
 const enhance = who => Enhanced => {
   return function Wrapper(props) {
+    const shoutedWho = who.toUpperCase()
     return (
       <h1>
-        <Enhanced {...props} who={who} />
+        <Enhanced {...props} who={shoutedWho} />
       </h1>
     )
   }
