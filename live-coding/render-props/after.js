@@ -1,4 +1,4 @@
-class Counter extends PureComponent {
+class CounterContainer extends PureComponent {
   increment = () => this.setState(({ count }) => ({ count: count + 1 }))
   decrement = () => this.setState(({ count }) => ({ count: count - 1 }))
   setCount = count => this.setState({ count })
@@ -6,7 +6,7 @@ class Counter extends PureComponent {
   handleChange = event => this.setCount(parseInt(event.target.value))
 
   state = {
-    count: 0,
+    count: this.props.initialCount,
     increment: this.increment,
     decrement: this.decrement,
     handleChange: this.handleChange,
@@ -17,10 +17,10 @@ class Counter extends PureComponent {
   }
 }
 
-function MyComponent() {
+function Counter({ initialCount }) {
   return (
-    <Counter>
-      {({ count, decrement, increment, handleChange }) => (
+    <CounterContainer initialCount={initialCount}>
+      {({ count, increment, decrement, handleChange }) => (
         <>
           <h1>{count}</h1>
           <div className="input-group">
@@ -30,8 +30,8 @@ function MyComponent() {
           </div>
         </>
       )}
-    </Counter>
+    </CounterContainer>
   )
 }
 
-render(MyComponent)
+render(<Counter initialCount={42} />)

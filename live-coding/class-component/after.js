@@ -1,5 +1,5 @@
-class MyComponent extends PureComponent {
-  state = { count: 0 }
+class Counter extends PureComponent {
+  state = { count: this.props.initialCount }
 
   increment = () => this.setState(({ count }) => ({ count: count + 1 }))
   decrement = () => this.setState(({ count }) => ({ count: count - 1 }))
@@ -23,4 +23,4 @@ class MyComponent extends PureComponent {
   }
 }
 
-render(MyComponent)
+render(<Counter initialCount={42} />)

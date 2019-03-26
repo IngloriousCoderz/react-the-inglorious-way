@@ -9,7 +9,7 @@ function useCounter() {
   return { count, increment, decrement, handleChange }
 }
 
-function MyComponent() {
+function Counter() {
   const { count, increment, decrement, handleChange } = useCounter()
 
   return (
@@ -24,4 +24,4 @@ function MyComponent() {
   )
 }
 
-render(memo(MyComponent))
+render(memo(Counter))

@@ -44,175 +44,194 @@ export { default as theme } from './theme'
 
 ---
 
-<!-- ## SASS and CSS Modules -->
-
 ## Agenda
 
-- Class Components
-- Class + Reducer
+- [_Class Components_](#4)
+- Container/Presentational
 - Higher-Order Components
 - Render Props
 - Hooks
-- Hooks + Reducer
-
----
-
-## Class Components
 
 ---
 
 <LiveCode
   title="Class Component - Before"
-  code={require('!raw-loader!./components/class-component-before')}
+  code={require('!raw-loader!./live-coding/class-component/before')}
 />
 
 ---
 
 <LiveCode
   title="Class Component - After"
-  code={require('!raw-loader!./components/class-component-after')}
+  code={require('!raw-loader!./live-coding/class-component/after')}
 />
 
 ---
 
-## Class + Reducer
+## Agenda
+
+- Class Components
+- [_Container/Presentational_](#7)
+- Higher-Order Components
+- Render Props
+- Hooks
 
 ---
 
 <LiveCode
-  title="Class + Reducer - Before"
-  code={require('!raw-loader!./components/class-reducer-before')}
-/>
-
----
-
-<LiveCode
-  title="Class + Reducer - After"
-  code={require('!raw-loader!./components/class-reducer-after')}
-/>
-
----
-
-## Higher-Order Components
-
----
-
-<LiveCode
-  title="Recompose - Before"
-  code={require('!raw-loader!./components/recompose-before')}
+  title="Container/Presentational - Before"
+  code={require('!raw-loader!./live-coding/container-presentational/before')}
 />
 
 ---
 
 <LiveCode
-  title="Recompose - Before"
-  code={require('!raw-loader!./components/recompose-after')}
+  title="Container/Presentational - After"
+  code={require('!raw-loader!./live-coding/container-presentational/after')}
 />
 
 ---
 
-## Render Props
+<LiveCode
+  title="Container/Presentational - Extra Speed"
+  code={require('!raw-loader!./live-coding/container-presentational/extra-speed')}
+/>
+
+---
+
+## Agenda
+
+- Class Components
+- Container/Presentational
+- [_Higher-Order Components_](#11)
+- Render Props
+- Hooks
+
+---
+
+<LiveCode
+  title="Higher-Order Components - Example 1"
+  code={require('!raw-loader!./live-coding/hoc/example1')}
+/>
+
+---
+
+<LiveCode
+  title="Higher-Order Components - Example 2"
+  code={require('!raw-loader!./live-coding/hoc/example2')}
+/>
+
+---
+
+<LiveCode
+  title="Higher-Order Components - Before"
+  code={require('!raw-loader!./live-coding/hoc/before')}
+/>
+
+---
+
+<LiveCode
+  title="Higher-Order Components - After"
+  code={require('!raw-loader!./live-coding/hoc/after')}
+/>
+
+---
+
+## Agenda
+
+- Class Components
+- Container/Presentational
+- Higher-Order Components
+- [_Render Props_](#16)
+- Hooks
+
+---
+
+<LiveCode
+  title="Render Props - Children"
+  code={require('!raw-loader!./live-coding/render-props/children')}
+/>
+
+---
+
+<LiveCode
+  title="Render Props - Component"
+  code={require('!raw-loader!./live-coding/render-props/component')}
+/>
+
+---
+
+<LiveCode
+  title="Render Props - Render"
+  code={require('!raw-loader!./live-coding/render-props/render')}
+/>
+
+---
+
+<LiveCode
+  title="Render Props - Function As Child Component"
+  code={require('!raw-loader!./live-coding/render-props/facc')}
+/>
+
+---
+
+<LiveCode
+  title="Render Props vs. HoC"
+  code={require('!raw-loader!./live-coding/render-props/vs-hoc')}
+/>
 
 ---
 
 <LiveCode
   title="Render Props - Before"
-  code={require('!raw-loader!./components/render-props-before')}
+  code={require('!raw-loader!./live-coding/render-props/before')}
 />
 
 ---
 
 <LiveCode
   title="Render Props - After"
-  code={require('!raw-loader!./components/render-props-after')}
+  code={require('!raw-loader!./live-coding/render-props/after')}
 />
 
 ---
 
-## Hooks
-
-```notes
-After seeing how the Higher-Order Components and Render Props patterns work and solve our problems, a question arises: are hooks really necessary?
-```
-
----
-
-<Image src="./assets/images/hooks-vs-recompose.png" width="33vw" />
-
-```notes
-That's why last year in November, while still studying hooks, I publicly asked myself: "React hooks leave me a bit puzzled still... Isn't it cleaner to just use Recompose? Maybe with some hierarchy-cutting magic...".
-
-Apart from the overwhelming number of likes on my post, another result I obtained is that THE Dan Abramov himself replied to me. Yay, senpai noticed me! <3 He said: "I think Andrew is writing something to explain why not". "Cool, can't wait to read it!".
-```
+<LiveCode
+  title="Render Props - Ouch"
+  code={require('!raw-loader!./live-coding/render-props/ouch')}
+/>
 
 ---
 
-<Image src="./assets/images/waiting.jpg" width="33vw" />
+## Agenda
 
-```notes
-That was November. I surfed every other day on the internet looking for Andrew's article, but never saw one.
-```
-
----
-
-<Image src="./assets/images/andrew-on-recompose.png" height="33vh" />
-<Image src="./assets/images/dan-on-recompose.png" height="50vh" />
-
-```notes
-One thing I found, though, is this excerpt from Recompose's README file, written at the end of October. Here Andrew says that "hooks solve all problems" addressed with Recompose, so he's "discontinuing active maintenance", he's not going to maintain the library anymore.
-
-This of course triggered a rage, which was calmed down by Dan a few weeks later: Recompose had no new features for two years already, so dicontinuing it won't change anything for the users. But another interesting part is that he says that hooks solve "a large subset" of problems, not all of them. We will see what this means in a while.
-
-Anyway, since we still hadn't a satisfying reply from the React team, let's find out by ourselves what does it mean to refactor from Recompose and higher-order components to hooks.
-```
+- Class Components
+- Container/Presentational
+- Higher-Order Components
+- Render Props
+- [_Hooks_](#25)
 
 ---
 
 <LiveCode
   title="Hooks - Before"
-  code={require('!raw-loader!./components/hooks-before')}
+  code={require('!raw-loader!./live-coding/hooks/before')}
 />
 
 ---
 
 <LiveCode
   title="Hooks - After"
-  code={require('!raw-loader!./components/hooks-after')}
+  code={require('!raw-loader!./live-coding/hooks/after')}
 />
 
 ---
 
-## Hooks + Reducer
+## Which to use?
 
----
-
-<LiveCode
-  title="Hooks + Reducer - Before"
-  code={require('!raw-loader!./components/hooks-reducer-before')}
-/>
-
----
-
-<LiveCode
-  title="Hooks + Reducer - After"
-  code={require('!raw-loader!./components/hooks-reducer-after')}
-/>
-
----
-
-## React.lazy is... cute
-
----
-
-## Context API
-
----
-
-## contextType
-
----
-
-## Context + Render Props + HoC
+- HOCs: _before_ render (change props, prevent renders)
+- Render Props: mix logic / multiple sub-items / switch behavior
+- Hooks: everything else
 
 ---
 
@@ -220,4 +239,8 @@ Anyway, since we still hadn't a satisfying reply from the React team, let's find
 
 Questions?
 
-[source code](https://github.com/IngloriousCoderz/react-the-inglorious-way)
+[html](https://www.ingloriouscoderz.it/react-the-inglorious-way)
+|
+[pdf](https://www.ingloriouscoderz.it/react-the-inglorious-way/presentation.pdf)
+|
+[source](https://github.com/IngloriousCoderz/react-the-inglorious-way)

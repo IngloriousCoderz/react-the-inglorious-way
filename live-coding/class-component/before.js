@@ -1,10 +1,9 @@
-class MyComponent extends Component {
+class Counter extends Component {
   constructor(props) {
     super(props)
 
-    this.state = { count: 0 }
+    this.state = { count: props.initialCount }
     this.increment = this.increment.bind(this)
-    this.decrement = this.decrement.bind(this)
   }
 
   increment() {
@@ -22,7 +21,7 @@ class MyComponent extends Component {
       <div>
         <h1>{count}</h1>
         <div className="input-group">
-          <button onClick={this.decrement}>-1</button>
+          <button onClick={this.decrement.bind(this)}>-1</button>
           <input
             type="number"
             value={count}
@@ -37,4 +36,4 @@ class MyComponent extends Component {
   }
 }
 
-render(MyComponent)
+render(<Counter initialCount={42} />)
