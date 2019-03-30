@@ -1,5 +1,5 @@
 function Parent() {
-  return <Wrapper render={({ who }) => <Child who={who + 'z'} />} who="world" />
+  return <Wrapper render={who => <Child who={who + 'z'} />} who="world" />
 }
 
 function Child({ who }) {
@@ -8,7 +8,7 @@ function Child({ who }) {
 
 function Wrapper({ render, who }) {
   const shoutedWho = who.toUpperCase()
-  return <h1>{render({ who: shoutedWho })}</h1>
+  return <h1>{render(shoutedWho)}</h1>
 }
 
 render(Parent)

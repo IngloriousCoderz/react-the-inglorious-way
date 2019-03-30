@@ -3,12 +3,10 @@ const enhance = compose(
   withHandlers({
     increment: ({ setCount }) => () => setCount(count => count + 1),
     decrement: ({ setCount }) => () => setCount(count => count - 1),
-  }),
-  withHandlers({
     handleChange: ({ setCount }) => event =>
       setCount(parseInt(event.target.value)),
   }),
-  pure,
+  memo,
 )
 
 const Counter = enhance(({ count, increment, decrement, handleChange }) => (
