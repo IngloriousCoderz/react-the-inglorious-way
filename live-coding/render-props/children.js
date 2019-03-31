@@ -1,13 +1,13 @@
 function Parent() {
   return (
     <Wrapper>
-      <Child />
+      <Child who="world" />
     </Wrapper>
   )
 }
 
-function Child() {
-  return 'Hello world!'
+function Child({ who }) {
+  return `Hello ${who}!`
 }
 
 function Wrapper({ children }) {

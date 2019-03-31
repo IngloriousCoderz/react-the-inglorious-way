@@ -1,12 +1,12 @@
 function Parent() {
-  return <Wrapper Component={Child} who="world" />
+  return <Wrapper who="world" Component={Child} />
 }
 
 function Child({ who }) {
   return `Hello ${who}!`
 }
 
-function Wrapper({ Component, who }) {
+function Wrapper({ who, Component }) {
   const shoutedWho = who.toUpperCase()
   return (
     <h1>
