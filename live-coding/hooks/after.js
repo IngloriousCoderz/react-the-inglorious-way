@@ -1,16 +1,17 @@
-function useCounter() {
-  const [count, setCount] = useState(0)
+function useCounter(initialCount) {
+  const [count, setCount] = useState(initialCount)
 
   const increment = () => setCount(count + 1)
   const decrement = () => setCount(count - 1)
-
   const handleChange = event => setCount(parseInt(event.target.value))
 
   return { count, increment, decrement, handleChange }
 }
 
-function Counter() {
-  const { count, increment, decrement, handleChange } = useCounter()
+Counter = memo(Counter)
+
+function Counter({ initialCount }) {
+  const { count, increment, decrement, handleChange } = useCounter(initialCount)
 
   return (
     <>
@@ -24,4 +25,4 @@ function Counter() {
   )
 }
 
-render(memo(Counter))
+render(<Counter initialCount={42} />)

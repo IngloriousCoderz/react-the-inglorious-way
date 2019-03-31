@@ -110,20 +110,6 @@ export { default as theme } from './theme'
 ---
 
 <LiveCode
-  title="Higher-Order Components - Example 1"
-  code={require('!raw-loader!./live-coding/hocs/example1')}
-/>
-
----
-
-<LiveCode
-  title="Higher-Order Components - Example 2"
-  code={require('!raw-loader!./live-coding/hocs/example2')}
-/>
-
----
-
-<LiveCode
   title="Higher-Order Components - Before"
   code={require('!raw-loader!./live-coding/hocs/before')}
 />
@@ -137,12 +123,19 @@ export { default as theme } from './theme'
 
 ---
 
+<LiveCode
+  title="Higher-Order Components - Recompose"
+  code={require('!raw-loader!./live-coding/hocs/recompose')}
+/>
+
+---
+
 ## Agenda
 
 - Class Components
 - Container/Presentational
 - Higher-Order Components
-- [_Render Props_](#16)
+- [_Render Props_](#15)
 - Hooks
 
 ---
@@ -176,13 +169,6 @@ export { default as theme } from './theme'
 ---
 
 <LiveCode
-  title="Render Props vs. HoC"
-  code={require('!raw-loader!./live-coding/render-props/vs-hoc')}
-/>
-
----
-
-<LiveCode
   title="Render Props - Before"
   code={require('!raw-loader!./live-coding/render-props/before')}
 />
@@ -209,7 +195,14 @@ export { default as theme } from './theme'
 - Container/Presentational
 - Higher-Order Components
 - Render Props
-- [_Hooks_](#25)
+- [_Hooks_](#23)
+
+---
+
+- They [separate](https://medium.com/@dan_abramov/making-sense-of-react-hooks-fdbde8803889) stateful logic
+- They are [composable](https://reactjs.org/docs/hooks-custom.html) functions
+- They allow us to go fully [functional](https://hackernoon.com/react-stateless-functional-components-nine-wins-you-might-have-overlooked-997b0d933dbc)
+- They keep our component hierarchy [flat](https://itnext.io/why-reacts-hooks-api-is-a-game-changer-8731c2b0a8c)
 
 ---
 
@@ -229,9 +222,41 @@ export { default as theme } from './theme'
 
 ## Which to use?
 
-- HOCs: _before_ render (change props, prevent renders)
-- Render Props: mix logic / multiple sub-items / switch behavior
-- Hooks: everything else
+---
+
+<Image src="./assets/images/hooks-vs-recompose.png" width="33vw" />
+
+---
+
+<Image src="./assets/images/waiting.jpg" width="33vw" />
+
+---
+
+<Image src="./assets/images/andrew-on-recompose.png" height="33vh" />
+<Image src="./assets/images/dan-on-recompose.png" height="50vh" />
+
+---
+
+<LiveCode
+  title="HOCs vs. All"
+  code={require('!raw-loader!./live-coding/hocs/vs-all')}
+/>
+
+---
+
+<LiveCode
+  title="Render Props vs. All"
+  code={require('!raw-loader!./live-coding/render-props/vs-all')}
+/>
+
+---
+
+## Which to use?
+
+- [Classes](#4): getSnapshotBeforeUpdate / componentDidCatch
+- [HOCs](#11): proxy / _before_ render (change props, prevent renders)
+- [Render Props](#15): mix logic / multiple sub-items / switch behavior
+- [Hooks](#23): everything else
 
 ---
 
