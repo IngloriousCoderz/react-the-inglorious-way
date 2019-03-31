@@ -8,6 +8,7 @@ class CounterContainer extends PureComponent {
   handleChange = event => this.setCount(parseInt(event.target.value))
 
   render() {
+    // NOTE: this is bad
     return Counter({
       count: this.state.count,
       increment: this.increment,
